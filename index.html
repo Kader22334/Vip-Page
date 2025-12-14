@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>User Panel — Mini Expire Box</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+  background:linear-gradient(270deg,#020212,#05031a,#000);
+  animation:bgMove 12s linear infinite alternate;
+}
+@keyframes bgMove{100%{background-position:200% 0;}}
+
+/* TV BOX */
+#tvBox{
+  position:fixed;
+  top:70px;left:50%;
+  transform:translateX(-50%);
+  width:330px;
+  background:rgba(0,0,0,0.92);
+  border:2px solid #00eaff;
+  border-radius:15px;
+  padding:18px;
+  z-index:2000;
+  box-shadow:0 0 22px #00eaff;
+}
+.tv-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+.tv-close{font-size:22px;color:#ff3b3b;cursor:pointer;}
+.tv-title{font-size:18px;color:#00eaff;font-weight:700;}
+.tv-btn{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  background:linear-gradient(90deg,#007bff,#00eaff);
+  color:#fff;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  box-shadow:0 0 12px #00eaff;
+}
+
+/* NAVBAR */
+.navbar{
+  width:100%;height:55px;
+  background:rgba(5,10,25,.9);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 18px;
+  position:fixed;top:0;z-index:200;
+  box-shadow:0 0 15px #00eaff;
+}
+.nav-left{display:flex;align-items:center;gap:10px;}
+.nav-left img{width:40px;height:40px;border-radius:50%;border:2px solid #00eaff;}
+.nav-left h1{font-size:1rem;color:#00eaff;}
+
+select{
+  background:rgba(0,0,0,.6);
+  border:1px solid #00eaff;
+  color:#00eaff;
+  padding:7px 12px;
+  border-radius:6px;
+}
+
+/* IFRAME */
+iframe{
+  position:absolute;
+  top:55px;left:0;
+  width:100%;
+  height:calc(100% - 55px);
+  border:none;
+}
+
+/* TELEGRAM BUTTON */
+.telegram-btn{
+  position:fixed;
+  bottom:20px;left:20px;
+  background:linear-gradient(90deg,#0088cc,#00eaff);
+  padding:10px 20px;
+  border-radius:25px;
+  color:#fff;
+  box-shadow:0 0 15px #00eaff;
+  z-index:500;
+}
+
+/* GAME BUTTON */
+.game-btn{
+  position:fixed;
+  bottom:20px;right:20px;
+  background:linear-gradient(90deg,#6a00ff,#00eaff);
+  padding:12px 20px;
+  border-radius:30px;
+  border:none;
+  color:#fff;
+  font-size:17px;
+  font-weight:700;
+  box-shadow:0 0 15px #6a00ff;
+}
+
+/* POPUP BOX */
+#popupBox{
+  position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:500px;
+  max-width:95%;
+  background:rgba(0,0,0,.95);
+  border:2px solid #00eaff;
+  border-radius:15px;
+  padding:20px;
+  display:none;
+  z-index:1000;
+  box-shadow:0 0 30px #00eaff;
+}
+.closeBtn{position:absolute;top:10px;right:12px;font-size:24px;color:#ff3b3b;cursor:pointer;}
+
+/* EXPIRE BOX */
+#expireBox{
+  position:fixed;
+  top:120px;right:20px;
+  width:220px;
+  background:rgba(0,0,0,.75);
+  border:2px solid #00eaff;
+  padding:10px;
+  border-radius:10px;
+  font-size:14px;
+  z-index:999;
+  cursor:grab;
+  box-shadow:0 0 15px #00eaff;
+  touch-action:none;
+}
+#expireBox b{display:block;text-align:center;color:#00eaff;margin-bottom:5px;}
+</style>
+</head>
+
+<body>
+
+<!-- TV BOX -->
+<div id="tvBox">
+  <div class="tv-head">
+    <div class="tv-close" onclick="tvBox.style.display='none'">❌</div>
+    <div class="tv-title">ALL JOIN</div>
+  </div>
+  <a class="tv-btn" href="https://t.me/abdulkader0190" target="_blank">Join Admin</a>
+  <a class="tv-btn" href="https://t.me/+cfCc4XZQa404ZGFl" target="_blank">Join Group</a>
+  <a class="tv-btn" href="https://t.me/kader_BDT_game" target="_blank">Join Channel</a>
+</div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="nav-left">
+    <img src="https://i.supaimg.com/0befa4a3-a05c-4629-89a0-1b923e64f402.jpg">
+    <h1>A.Kader VIP Premium</h1>
+  </div>
+  <select id="fileDropdown">
+    <option value="">-- Select Vip hack --</option>
+  </select>
+</div>
+
+<!-- MAIN IFRAME -->
+<iframe id="mainFrame" src="https://xmod.top/p/tep1"></iframe>
+
+<!-- TELEGRAM BUTTON -->
+<a href="https://kader22334.github.io/tournament-/" class="telegram-btn" target="_blank">💬 tournament</a>
+
+<!-- GAME BUTTON -->
+<button class="game-btn" onclick="popupBox.style.display='block'">🎮</button>
+
+<!-- POPUP BOX -->
+<div id="popupBox">
+  <div class="closeBtn" onclick="popupBox.style.display='none'">❌</div>
+  <iframe src="https://dkwin9.com/#/" style="width:100%;height:300px;border:0"></iframe>
+</div>
+
+<!-- EXPIRE BOX -->
+<div id="expireBox">
+  <b>Mini Key Status</b>
+  Expires in: <span id="timeLeft">—</span>
+</div>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script>
+firebase.initializeApp({
+  apiKey: "AIzaSyDIeVHjyTKIyBfaFxPG8iK7S9SuRgjFbFk",
+  authDomain: "fir-dcce6.firebaseapp.com",
+  databaseURL: "https://fir-dcce6-default-rtdb.firebaseio.com",
+  projectId: "fir-dcce6",
+  storageBucket: "fir-dcce6.appspot.com",
+  messagingSenderId: "981371148475",
+  appId: "1:981371148475:web:de08536e57efb6c53fb19e"
+});
+
+const db = firebase.database();
+const dropdown = document.getElementById("fileDropdown");
+const frame = document.getElementById("mainFrame");
+const timeLeft = document.getElementById("timeLeft");
+
+/* LOAD FILES */
+db.ref("files").on("value", snap=>{
+  dropdown.innerHTML='<option value="">-- Select Vip hack --</option>';
+  const files = snap.val() || {};
+  Object.keys(files).forEach(id=>{
+    const opt=document.createElement("option");
+    opt.value=id;
+    opt.textContent=files[id].title || "VIP Hack";
+    dropdown.appendChild(opt);
+  });
+});
+
+/* CHANGE FILE */
+dropdown.addEventListener("change",()=>{
+  const id=dropdown.value;
+  if(!id){
+    frame.src="https://xmod.top/p/tep1";
+    frame.removeAttribute("srcdoc");
+    return;
+  }
+  db.ref("files/"+id).once("value").then(snap=>{
+    const f=snap.val();
+    if(f && f.code){
+      frame.srcdoc=f.code;
+      frame.removeAttribute("src");
+    }
+  });
+});
+
+/* EXPIRE LIVE FIXED */
+let expireDate = null;
+let uid = localStorage.getItem("uid");
+if(uid){
+  db.ref("users/"+uid).on("value",snap=>{
+    if(snap.exists()){
+      const u=snap.val();
+      if(u.expiresAt){
+        expireDate = new Date(parseInt(u.expiresAt));
+      }
+    }
+  });
+}
+
+/* LIVE TIMER */
+setInterval(()=>{
+  if(!expireDate){timeLeft.innerText="—";return;}
+  let diff = expireDate.getTime() - Date.now();
+  if(diff<=0){timeLeft.innerText="Expired";return;}
+  let d=Math.floor(diff/86400000),
+      h=Math.floor(diff/3600000)%24,
+      m=Math.floor(diff/60000)%60,
+      s=Math.floor(diff/1000)%60;
+  timeLeft.innerText=`${d}d ${h}h ${m}m ${s}s`;
+},1000);
+
+/* DRAG MINI BOX */
+const box=document.getElementById("expireBox");
+let isDown=false,ox=0,oy=0;
+function start(e){
+  isDown=true;
+  const p=e.touches?e.touches[0]:e;
+  ox=p.clientX-box.offsetLeft;
+  oy=p.clientY-box.offsetTop;
+}
+function move(e){
+  if(!isDown)return;
+  e.preventDefault();
+  const p=e.touches?e.touches[0]:e;
+  box.style.left=(p.clientX-ox)+"px";
+  box.style.top=(p.clientY-oy)+"px";
+}
+box.addEventListener("mousedown",start);
+document.addEventListener("mousemove",move);
+document.addEventListener("mouseup",()=>isDown=false);
+box.addEventListener("touchstart",start,{passive:false});
+document.addEventListener("touchmove",move,{passive:false});
+document.addEventListener("touchend",()=>isDown=false);
+</script>
+
+</body>
+  </html>
